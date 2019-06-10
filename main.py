@@ -1,5 +1,3 @@
-
-
 def create_files(fileIn, fileOut, csvFileOut):
     with open(fileOut, 'w') as parsedFile:
         with open(fileIn) as file1:
