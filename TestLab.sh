@@ -5,7 +5,6 @@ then
 declare -a TESTS=("FCFS" "SJF" "RR1MS" "RR5MS" "RR10MS" "RR15MS" "RR20MS" "RR25MS" "RR50MS")
 declare -a QUANTA=(1 5 10 15 20 25 50)
 CURRENTQ=0
-
 cd /home/u3/kgc0019/COMP3500-Labs/lab1
 mkdir "./TEST_RESULTS"
 cd ./TEST_RESULTS
@@ -60,6 +59,22 @@ cd ./TEST_RESULTS
 fi
 if [[ $REPLY == "2" ]]
 then
+	cd /home/u3/kgc0019/COMP3500-Labs/lab2
+	mkdir "./TEST_RESULTS"
+	cd ./TEST_RESULTS/
 	declare -a TESTS=("PARTONE" "PARTTWO")
+	for TEST in "${TESTS[@]}"
+	do
+		if [ !-f $TEST ]
+		then
+			touch $TEST	
+		fi
+		if [[ $TEST == "PARTONE" ]]
+		then
+			../lab2-1 >> $TEST
+		else
+			../lab2-2 >> $TEST
+		fi
+	done
 fi
 
